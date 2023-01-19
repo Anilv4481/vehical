@@ -1,0 +1,16 @@
+API:
+
+registration and login - COMPLETE
+
+profile(get and update) - COMPLETE
+
+page content(faq, privacy-policy and T&C)
+trending games
+battles
+wallets
+add money in wallet
+withdrawal money
+
+Admin panel:
+Customers List & Details - COMPLETE
+Customer status(active-inactive) - COMPLETE

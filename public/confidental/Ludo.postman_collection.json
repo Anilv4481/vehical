@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "9cb56444-18a7-4dc6-bf7b-f08d454ae655",
+		"name": "Ludo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Your test name\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.status).to.eql(true);\r",
+											"    if(responseCode.code === 200)\r",
+											"    {\r",
+											"        pm.environment.set(\"customer_token\", jsonData.token);\r",
+											"    }\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "info@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local_ludo_url}}/customer/login",
+									"host": [
+										"{{local_ludo_url}}"
+									],
+									"path": [
+										"customer",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Your test name\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.status).to.eql(true);\r",
+											"    if(responseCode.code === 200)\r",
+											"    {\r",
+											"        pm.environment.set(\"customer_token\", jsonData.token);\r",
+											"    }\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Ramesh",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "info@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "ASczzz",
+											"description": "Admin, Customer, Manager, Support",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local_ludo_url}}/customer/register",
+									"host": [
+										"{{local_ludo_url}}"
+									],
+									"path": [
+										"customer",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "mobile_no",
+											"value": "5263214599",
+											"type": "text"
+										},
+										{
+											"key": "otp",
+											"value": "1234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local_ludo_url}}/customer/logout",
+									"host": [
+										"{{local_ludo_url}}"
+									],
+									"path": [
+										"customer",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Get Profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local_ludo_url}}/customer/profile",
+									"host": [
+										"{{local_ludo_url}}"
+									],
+									"path": [
+										"customer",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Ramesh",
+											"type": "text"
+										},
+										{
+											"key": "mobile_no",
+											"value": "8955632589",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local_ludo_url}}/customer/update-profile",
+									"host": [
+										"{{local_ludo_url}}"
+									],
+									"path": [
+										"customer",
+										"update-profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Profile Image",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{customer_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/CyberPunk/Pictures/wallpapers/wallpaperflare.com_wallpaper (6).jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local_ludo_url}}/customer/update-profile-image",
+									"host": [
+										"{{local_ludo_url}}"
+									],
+									"path": [
+										"customer",
+										"update-profile-image"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Customer Test Api(Get)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_ludo_url}}/customer/test",
+							"host": [
+								"{{local_ludo_url}}"
+							],
+							"path": [
+								"customer",
+								"test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

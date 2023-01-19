@@ -1,0 +1,15 @@
+Important Command in Laravel
+1- php artisan serve 
+-ye command server create karta hai project ke liye
+
+2- php artisan cache:clear  
+-cache cleare karne ke liye
+
+3- php artisan migrate 
+- tables ko apne project mai import karane ke liye
+
+4- php artisan db:seed 
+- iska use agar koi table hum apne project mai import karte hai to us table la ka data lane ke liye ye command use hota hai.
+
+5- php artisan make:migration create_table_name_table 
+- is command ka use laravel mai migration through table banane ke liye hota hai.
