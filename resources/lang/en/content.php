@@ -801,4 +801,68 @@ return [
         'care_request'=>'Customer Care',
 
 
+        // Flat Battery
+
+        'vehical_type'=>'Select Vehical',
+        'vehical_no'=>'Vehical Number',
+        'vehical_pic'=>'Vehical Picture',
+        'battery_pic'=>'BAttery Picture',
+        'location'=>'Location',
+        'descrption'=>'Descrption',
+
+        'vehical_type'=>'Select Vehical',
+        'vehical_no'=>'Vehical Number',
+        'vehical_pic'=>'Vehical Picture',
+        'battery_pic'=>'BAttery Picture',
+        'location'=>'Location',
+        'descrption'=>'Descrption',
+
+        'flat_battery'=>'Flat Battery',
+        // Flat Tyre
+
+        'vehical_type'=>'Select Vehical',
+        'tube'=>'Select Tube',
+        'tyre_size'=>'width/ratio/height',
+        'tyre_photo'=>'Tyre Picture',
+        'vehical_no'=>'Vehical Number',
+        'location'=>'Location',
+        'descrpition'=>'Descrption',
+
+        'vehical_type'=>'Select Vehical',
+        'tube'=>'Select Tube',
+        'tyre_size'=>'width/ratio/height',
+        'tyre_photo'=>'Tyre Picture',
+        'vehical_no'=>'ex- Gj05SD4910',
+        'location'=>'Location',
+        'des'=>'Optional',
+
+
+
+
+
+
+
+        'flattyre'=>'Flat Tyre',
+
+
+
+
+
+        // Petrol Desiel
+
+        'vehical_type'=>' Vehical',
+        'vehical_no'=>'Vehical No',
+        'vehical_pic'=>'Vehical Photo',
+        'fuel_type'=>'Fuel Type',
+        'quanity_fuel'=>'Fuel Quantity',
+        'location'=>'Location',
+        'descrpition'=>'Descrption',
+        'des'=>'Optional',
+        'vehical_number'=>'Ex- GJ05SD4910',
+
+        'petrol_desiel'=>'Petrol & Desiel',
+
+
+
+
 ];

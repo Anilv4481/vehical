@@ -35,8 +35,23 @@ use App\Http\Requests\Admin\HostelProfileRequest;
 use App\Http\Requests\Admin\HostelAvaRequest;
 
 
+
 use App\Http\Requests\Admin\HostelSerRequest;
+
+
+// api request
 use App\Http\Requests\Admin\CareRequest;
+use App\Http\Requests\Admin\CarBikeDetailsRequest;
+use App\Http\Requests\Admin\ShopRegistrationrequest;
+use App\Http\Requests\Admin\VehicalServiceRequest;
+use App\Http\Requests\Admin\PetrolDesielRequest;
+use App\Http\Requests\Admin\FlatTyreRequest;
+use App\Http\Requests\Admin\FlatBatteryRequest;
+use App\Http\Requests\Admin\VehicalShopRequest;
+use App\Http\Requests\Admin\VehicalworkerRequest;
+
+
+
 
 use App\Http\Requests\Admin\DoctorServiceRequest;
 use App\Http\Requests\Admin\ManagehostelserviceRequest;
@@ -164,10 +179,143 @@ class CAuthController extends Controller
         return $this->apiAuthService->logout($request);
     }
 
-    // post care request
+    // CUstomer Request Add And Delete Api
 
     public function carerequestapi(CareRequest $request)
     {
         return $this->apiAuthService->carerequestapi($request);
+    }
+    public function carerequestapidel($id)
+    {
+        return $this->apiAuthService->carerequestapidel($id);
+    }
+    public function carerequestapilist()
+    {
+        return $this->apiAuthService->carerequestapilist();
+    }
+
+    // Car And Bike Add And Delete Api
+    public function carbikeapi(CarBikeDetailsRequest $request)
+    {
+        return $this->apiAuthService->carbikeapi($request);
+    }
+    public function carbikeapidel($id)
+    {
+        return $this->apiAuthService->carbikeapidel($id);
+    }
+    public function carbikeapilist()
+    {
+        return $this->apiAuthService->carbikelist();
+    }
+
+    // Shop Registration Add And Delte Api
+
+                        //add
+    public function shopregapi(ShopRegistrationrequest $request)
+    {
+        return $this->apiAuthService->shopregapi($request);
+    }
+                        //del
+    public function shopregapidel($id)
+    {
+        return $this->apiAuthService->shopregapidel($id);
+    }
+                        //list
+    public function shopregapilist()
+    {
+        return $this->apiAuthService->shopreglist();
+    }
+
+    // Service worker Add And Delete Api
+                        //add
+    public function serviceworkersapi(VehicalworkerRequest $request)
+    {
+        return $this->apiAuthService->vehicalworkerservice($request);
+    }
+                        //del
+    public function serviceworkersapidel($id)
+    {
+        return $this->apiAuthService->vehicalworkerservicedel($id);
+    }
+    //                     //list
+    public function serviceworkersapilist()
+    {
+        return $this->apiAuthService->vehicalworkerservicelist();
+    }
+
+    // Petrol Desiel Add And Delete Api
+    public function petroldesielapi(PetrolDesielRequest $request)
+    {
+        return $this->apiAuthService->petroldesielservice($request);
+    }
+    public function petroldesielapidel($id)
+    {
+        return $this->apiAuthService->petroldesielserviceDel($id);
+    }
+    public function petroldesielapilist()
+    {
+        return $this->apiAuthService->petroldesielservicelist();
+    }
+
+    // Flate Tyre Add And Delete And List Api
+    public function flattyresapi(FlatTyreRequest $request)
+    {
+        return $this->apiAuthService->FlatTyreService($request);
+    }
+    public function flattyresapidel($id)
+    {
+        return $this->apiAuthService->FlatTyreServiceDel($id);
+    }
+    public function flattyresapilist()
+    {
+        return $this->apiAuthService->FlatTyreServicelist();
+    }
+
+
+// Flate Battery Add And Delete And List Api
+
+    public function flatbatterysapi(FlatBatteryRequest $request)
+    {
+        return $this->apiAuthService->FlatBatteryService($request);
+    }
+    public function flatbatterysapidel($id)
+    {
+        return $this->apiAuthService->FlatBatteryServiceDel($id);
+    }
+    public function flatbatterysapilist()
+    {
+        return $this->apiAuthService->FlatBatteryServicelist();
+    }
+
+
+// Vehical Service Add And Delete And List Api
+
+    public function vehicalservicesapi(VehicalShopRequest $request)
+    {
+        return $this->apiAuthService->vehicalservices($request);
+    }
+    public function vehicalservicesapidel($id)
+    {
+        return $this->apiAuthService->vehicalservicesdel($id);
+    }
+    public function vehicalservicesapilist()
+    {
+        return $this->apiAuthService->vehicalserviceslist();
+    }
+
+
+// Flate Battery Add And Delete And List Api
+
+    public function vehicalshopsapi(VehicalShopRequest $request)
+    {
+        return $this->apiAuthService->vehicalshopservice($request);
+    }
+    public function vehicalshopsapidel($id)
+    {
+        return $this->apiAuthService->vehicalshopservicedel($id);
+    }
+    public function vehicalshopsapilist()
+    {
+        return $this->apiAuthService->vehicalshopservicelist();
     }
 }

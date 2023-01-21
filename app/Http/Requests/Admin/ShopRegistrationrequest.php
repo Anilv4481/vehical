@@ -34,7 +34,7 @@ class ShopRegistrationrequest extends FormRequest
                 'company_year_of_exp' => 'required',
                 'company_aboutus' => 'required',
                 'company_password' => 'required',
-                'company_c_password ' => 'required',
+                'company_c_password' => 'required',
                 'company_work_place_photo' => 'required',
                 'company_profile_image' => 'required',
                 'company_location' => 'required',
@@ -51,7 +51,7 @@ class ShopRegistrationrequest extends FormRequest
                 'company_year_of_exp' => 'required',
                 'company_aboutus' => 'required',
                 'company_password' => 'required',
-                'company_c_password ' => 'required',
+                'company_c_password' => 'required',
                 'company_work_place_photo' => 'required',
                 'company_profile_image' => 'required',
                 'company_location' => 'required',
@@ -71,7 +71,7 @@ class ShopRegistrationrequest extends FormRequest
             'company_year_of_exp.required' => __('validation.required', ['attribute' => 'Company Year of Exp must be require']),
             'company_aboutus.required' => __('validation.required', ['attribute' => 'About us']),
             'company_password.required' => __('validation.required', ['attribute' => 'Password must be require']),
-            
+
             'company_c_password.required' => __('validation.required', ['attribute' => 'Confirm Password must be require']),
             'company_work_place_photo.required' => __('validation.required', ['attribute' => 'Company Work Place Photo']),
             'company_profile_image.required' => __('validation.required', ['attribute' => 'Profile Image must be require']),

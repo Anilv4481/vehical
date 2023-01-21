@@ -33,7 +33,44 @@ Route::group(['middleware' => ['optimizeImages'], 'prefix' => '/v1/customer', 'n
     {
         Route::post('login', 'login');
         Route::post('register', 'register');
-        Route::post('carerequestapi','carerequestapi');
+
+        Route::post('vehicalservices','vehicalservicesapi');
+        Route::post('vehicalserviceslist','vehicalservicesapilist');
+        Route::post('vehicalserviceslist/{id}','vehicalservicesapidel');
+
+        Route::post('carerequests','carerequestapi');
+        Route::post('carerequestslist','carerequestapilist');
+        Route::post('carerequests/{id}','carerequestapidel');
+
+        Route::post('carbikedetails','carbikeapi');
+        Route::post('carbikedetailslist','carbikeapilist');
+        Route::post('carbikedetails/{id}','carbikeapidel');
+
+        Route::post('shopregistrations','shopregapi');
+        Route::post('shopregistrationslist','shopregapilist');
+        Route::post('shopregistrations/{id}','shopregapidel');
+
+        Route::post('serviceworkers','serviceworkersapi');
+        Route::post('serviceworkerslist','serviceworkersapilist');
+        Route::post('serviceworkers/{id}','serviceworkersapidel');
+
+        Route::post('petroldesiels','petroldesielapi');
+        Route::post('petroldesielslist','petroldesielapilist');
+        Route::post('petroldesiels/{id}','petroldesielapidel');
+
+        Route::post('flattyres','flattyresapi');
+        Route::post('flattyreslist','flattyresapilist');
+        Route::post('flattyres/{id}','flattyresapidel');
+
+        Route::post('flatbatterys','flatbatterysapi');
+        Route::post('flatbatterys/{id}','flatbatterysapidel');
+        Route::post('flatbatteryslist','flatbatterysapilist');
+
+        Route::post('vehicalshops','vehicalshopsapi');
+        Route::post('vehicalshops/{id}','vehicalshopsapidel');
+        Route::post('vehicalshopslist','vehicalshopsapilist');
+
+
     });
 
 

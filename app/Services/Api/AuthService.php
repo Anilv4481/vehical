@@ -54,6 +54,23 @@ use App\Models\HostelAddService;
 use App\Models\Rating;
 // care request model
 use App\Models\CareRequestModel;
+// carbike details model
+use App\Models\CarBikeDetailsModel;
+// shop registration model
+use App\Models\VehicalShopRegistration;
+// vehical service model
+use App\Models\VehicalService;
+// petrol desiel model
+use App\Models\PetrolDesielModel;
+// Tyre model
+use App\Models\FlatTyreModel;
+// Battrey model
+use App\Models\FlatBatteryModel;
+// Service Worker model
+use App\Models\VehicalWorker;
+// Service Worker model
+use App\Models\VehicalShop;
+
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -1510,7 +1527,16 @@ class AuthService
         return JWTAuth::parseToken()->authenticate();
     }
 
-    // care request api
+
+
+
+
+
+
+
+
+
+    // customer request api
     public static function carerequestapi(Request $request){
 
         $input =
@@ -1543,6 +1569,810 @@ class AuthService
                 }
     }
 
+    public static function carerequestapidel($id){
 
+        $result=DB::table('carerequest')->where('care_request_id',$id)->delete();
+
+        if($result)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Delete successfully',
+                    'data' => $result
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+
+     }
+     public static function carerequestapilist(){
+
+        $status = DB::table('carerequest')->get();
+
+        if (count($status)>0)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Find successfully',
+                    'data' => $status
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+    }
+
+
+
+
+
+
+
+
+    // Car Bike Service
+    public static function carbikeapi(Request $request){
+
+        $input =
+        [
+        'vehical_company_name' => $request->vehical_company_name,
+        'vehical_name' => $request->vehical_name,
+        'vehical_registration_no' => $request->vehical_registration_no,
+        ];
+
+        $carbike = CarBikeDetailsModel::create($input);
+
+        if ($carbike) {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Insert successfully',
+                    'data' => $carbike
+                ],
+                200
+                    );
+                 } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Inserted',
+                    'data' =>[],
+                ],
+                200
+                );
+                }
+    }
+    public static function carbikeapidel($id){
+
+        $result=DB::table('carbikedetails')->where('car_bike_details_id',$id)->delete();
+
+        if($result)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Delete successfully',
+                    'data' => $result
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+
+     }
+     public static function carbikelist(){
+
+        $status = DB::table('carbikedetails')->get();
+
+        if (count($status)>0)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Find successfully',
+                    'data' => $status
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+    }
+
+
+
+
+
+     // Vehical Service Add And Delete And List Api
+    public static function vehicalworkerservice(Request $request){
+
+        $input =
+        [
+        'service_worker_name' => $request->service_worker_name,
+        'service_worker_status' => $request->service_worker_status,
+        'service_worker_profile' => $request->service_worker_profile,
+        'service_worker_active' => $request->service_worker_active,
+        'service_worker_phone' => $request->service_worker_phone,
+        'longitude' => $request->longitude,
+        'latitude' => $request->latitude,
+        'service_worker_email_id' => $request->service_worker_email_id,
+        'service_worker_shop_name' => $request->service_worker_shop_name,
+        'service_worker_last_location' => $request->service_worker_last_location,
+        ];
+
+        $serviceworker = VehicalWorker::create($input);
+
+        if ($serviceworker) {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Insert successfully',
+                    'data' => $serviceworker
+                ],
+                200
+                    );
+                 } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Inserted',
+                    'data' =>[],
+                ],
+                200
+                );
+                }
+    }
+    public static function vehicalworkerservicedel($id){
+
+        $result=DB::table('serviceworkers')->where('service_worker_id',$id)->delete();
+
+        if($result)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Delete successfully',
+                    'data' => $result
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+
+     }
+     public static function vehicalworkerservicelist(){
+
+        $status = DB::table('serviceworkers')->get();
+
+        if (count($status)>0)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Find successfully',
+                    'data' => $status
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+    }
+
+
+
+
+
+
+
+
+
+    // Shop Rergistration Api
+    public static function shopregapi(Request $request){
+
+        $input =
+        [
+        'company_name' => $request->company_name,
+        'company_gst_no' => $request->company_gst_no,
+        'company_owner_name' => $request->company_owner_name,
+        'company_address' => $request->company_address,
+        'company_email' => $request->company_email,
+        'company_mobile' => $request->company_mobile,
+        'company_year_of_exp' => $request->company_year_of_exp,
+        'company_aboutus' => $request->company_aboutus,
+        'company_password' => $request->company_password,
+        'company_c_password' => $request->company_c_password,
+        'company_work_place_photo' => $request->company_work_place_photo,
+        'company_profile_image' => $request->company_profile_image,
+        'company_location' => $request->company_location,
+        ];
+
+        $vehicalshop = VehicalShopRegistration::create($input);
+
+        if ($vehicalshop) {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Insert successfully',
+                    'data' => $vehicalshop
+                ],
+                200
+                    );
+                 } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Inserted',
+                    'data' =>[],
+                ],
+                200
+                );
+                }
+    }
+    public static function shopregapidel($id){
+
+        $result=DB::table('shopregistrations')->where('shop_registration_id',$id)->delete();
+
+        if($result)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Delete successfully',
+                    'data' => $result
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+
+     }
+     public static function shopreglist(){
+
+        $status = DB::table('shopregistrations')->get();
+
+        if (count($status)>0)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Find successfully',
+                    'data' => $status
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+    }
+
+
+
+
+
+
+    // Petrol ANd Desiel Service Api
+    public static function petroldesielservice(Request $request){
+
+        $input =
+        [
+        'vehical_type' => $request->vehical_type,
+        'vehical_no' => $request->vehical_no,
+        'vehical_pic' => $request->vehical_pic,
+        'fuel_type' => $request->fuel_type,
+        'quanity_fuel' => $request->quanity_fuel,
+        'location' => $request->location,
+        'descrpition' => $request->descrpition,
+
+        ];
+
+        $petroldesiel = PetrolDesielModel::create($input);
+
+        if ($petroldesiel) {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Insert successfully',
+                    'data' => $petroldesiel
+                ],
+                200
+                    );
+                 } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Inserted',
+                    'data' =>[],
+                ],
+                200
+                );
+                }
+    }
+    public static function petroldesielserviceDel($id){
+
+        $result=DB::table('petroldesiel')->where('petroldesiel_id',$id)->delete();
+
+        if($result)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Delete successfully',
+                    'data' => $result
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+
+     }
+     public static function petroldesielservicelist(){
+
+        $status = DB::table('petroldesiel')->get();
+
+        if (count($status)>0)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Find successfully',
+                    'data' => $status
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+    }
+
+
+
+
+
+
+    // Flate Tyre Service
+    public static function FlatTyreService(Request $request){
+
+        $input =
+        [
+        'vehical_type' => $request->vehical_type,
+        'tube' => $request->tube,
+        'tyre_size' => $request->tyre_size,
+        'tyre_photo' => $request->tyre_photo,
+        'vehical_no' => $request->vehical_no,
+        'location' => $request->location,
+        'descrption' => $request->descrption,
+
+        ];
+
+        $flattyre = FlatTyreModel::create($input);
+
+        if ($flattyre) {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Insert successfully',
+                    'data' => $flattyre
+                ],
+                200
+                    );
+                 } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Inserted',
+                    'data' =>[],
+                ],
+                200
+                );
+                }
+    }
+    public static function FlatTyreServiceDel($id){
+
+        $result=DB::table('flattyre')->where('flat_tyre_id',$id)->delete();
+
+        if($result)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Delete successfully',
+                    'data' => $result
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+
+     }
+     public static function FlatTyreServicelist(){
+
+        $status = DB::table('flattyre')->get();
+
+        if (count($status)>0)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Find successfully',
+                    'data' => $status
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+    }
+
+
+
+
+
+
+    // Flate BAttery Service
+
+    public static function FlatBatteryService(Request $request){
+
+        $input =
+        [
+        'vehical_type' => $request->vehical_type,
+        'vehical_no' => $request->vehical_no,
+        'vehical_pic' => $request->vehical_pic,
+        'battery_pic' => $request->battery_pic,
+        'location' => $request->location,
+        'descrption' => $request->descrption,
+
+        ];
+
+        $flatbattery = FlatBatteryModel::create($input);
+
+        if ($flatbattery) {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Insert successfully',
+                    'data' => $flatbattery
+                ],
+                200
+                    );
+                 } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Inserted',
+                    'data' =>[],
+                ],
+                200
+                );
+                }
+    }
+    public static function FlatBatteryServiceDel($id){
+
+        $result=DB::table('flatbattery')->where('flat_battery_id',$id)->delete();
+
+        if($result)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Delete successfully',
+                    'data' => $result
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+
+     }
+     public static function FlatBatteryServicelist(){
+
+        $status = DB::table('flatbattery')->get();
+
+        if (count($status)>0)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Find successfully',
+                    'data' => $status
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+    }
+
+
+
+
+
+
+    // Vheical Service
+
+    public static function vehicalservices(Request $request){
+
+        $input =
+        [
+        'vehicalservice_name' => $request->vehicalservice_name,
+        'vehical_image' => $request->vehical_image,
+
+
+        ];
+
+        $vehicalservice = VehicalService::create($input);
+
+        if ($vehicalservice) {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Insert successfully',
+                    'data' => $vehicalservice
+                ],
+                200
+                    );
+                 } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Inserted',
+                    'data' =>[],
+                ],
+                200
+                );
+                }
+    }
+    public static function vehicalservicesdel($id){
+
+        $result=DB::table('vehicalservices')->where('vehicalservice_id',$id)->delete();
+
+        if($result)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Delete successfully',
+                    'data' => $result
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+
+     }
+     public static function vehicalserviceslist(){
+
+        $status = DB::table('vehicalservices')->get();
+
+        if (count($status)>0)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Find successfully',
+                    'data' => $status
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+    }
+
+
+    // Vheical Shop
+
+    public static function vehicalshopservice(Request $request){
+
+        $input =
+        [
+        'vehical_shop_address' => $request->vehical_shop_address,
+        'vehical_phone_number' => $request->vehical_phone_number,
+        'vehical_shop_email_id' => $request->vehical_shop_email_id,
+        'vehical_shop_status' => $request->vehical_shop_status,
+        'vehical_shop_profile' => $request->vehical_shop_profile,
+        'vehical_type' => $request->vehical_type,
+        'vehical_problem' => $request->vehical_problem,
+        'vehical_desc' => $request->vehical_desc,
+
+
+        ];
+
+        $vehicalshop = VehicalShop::create($input);
+
+        if ($vehicalshop) {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Insert successfully',
+                    'data' => $vehicalshop
+                ],
+                200
+                    );
+                 } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Inserted',
+                    'data' =>[],
+                ],
+                200
+                );
+                }
+    }
+    public static function vehicalshopservicedel($id){
+
+        $result=DB::table('vehicalhshops')->where('vehical_shop_id',$id)->delete();
+
+        if($result)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Delete successfully',
+                    'data' => $result
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+
+     }
+     public static function vehicalshopservicelist(){
+
+        $status = DB::table('vehicalhshops')->get();
+
+        if (count($status)>0)
+        {
+            return response()->json(
+                [
+                    'status' => true,
+                    'message' => 'Data Find successfully',
+                    'data' => $status
+                ],
+                200
+            );
+        } else {
+            return response()->json(
+                [
+                    'status' => false,
+                    'message' => 'Data not Found',
+                    'data' =>[],
+                ],
+                200
+            );
+        }
+    }
 
 }

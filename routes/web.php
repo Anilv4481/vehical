@@ -189,5 +189,26 @@ Route::group(['middleware' => ['optimizeImages'], 'prefix' => 'admin', 'as' => '
             Route::get('/customerregistration/destroy/{id}/', 'destroy')->name('customerregistration.destroy');
         });
         Route::resource('/customerregistration',CustomerRegistrationController::class);
+
+        // Flat Battery
+
+        Route::controller(FlatBatteryController::class)->group(function () {
+            Route::get('/flatbatterys/status/{id}/{status}', 'status')->name('flatbattery.status');
+            Route::get('/flatbatterys/destroy/{id}/', 'destroy')->name('flatbattery.destroy');
+        });
+        Route::resource('/flatbatterys',FlatBatteryController::class);
+
+        // Flat Tyre
+        Route::controller(FlatTyreController::class)->group(function () {
+            Route::get('/flattyres/status/{id}/{status}', 'status')->name('flattyres.status');
+            Route::get('/flattyres/destroy/{id}/', 'destroy')->name('flattyres.destroy');
+        });
+        Route::resource('/flattyres',FlatTyreController::class);
+        // Petrol Desiel
+        Route::controller(PetrolDesielController::class)->group(function () {
+            Route::get('/petroldesiels/status/{id}/{status}', 'status')->name('petroldesiels.status');
+            Route::get('/petroldesiels/destroy/{id}/', 'destroy')->name('petroldesiels.destroy');
+        });
+        Route::resource('/petroldesiels',PetrolDesielController::class);
     });
 });

@@ -89,17 +89,6 @@ Breadcrumbs::resource('permissions', $mls->messageLanguage('only_name', 'permiss
 Breadcrumbs::resource('battles', $mls->messageLanguage('only_name', 'battle', 2));
 /*------------- Admin Consultants ------------------------*/
 Breadcrumbs::resource('consultants', $mls->messageLanguage('only_name', 'consultant', 2));
-
-/*------------- Admin Vehical shop ------------------------*/
-Breadcrumbs::resource('vehicalshops', $mls->messageLanguage('only_name', 'vehicalshop', 2));
-
-/*------------- Admin Shop Registration ------------------------*/
-Breadcrumbs::resource('shopregistrations', $mls->messageLanguage('only_name', 'shopregistration', 2));
-
-/*------------- Admin Car & Bike Details ------------------------*/
-Breadcrumbs::resource('carbikedetails', $mls->messageLanguage('only_name', 'carbikedetail', 2));
-
-
 /*------------- Admin Vehical Service Worker------------------------*/
 Breadcrumbs::resource('serviceworkers', $mls->messageLanguage('only_name', 'serviceworker', 2));
 /*------------- Admin Vehical Service ------------------------*/
@@ -119,7 +108,20 @@ Breadcrumbs::resource('contactus', $mls->messageLanguage('only_name', 'contactus
 /*------------- Admin Promocode ------------------------*/
 Breadcrumbs::resource('promocodes', $mls->messageLanguage('only_name', 'promocode', 2));
 
-/*-------------  Rquest For care ------------------------*/
+
+/*-------------  Vehical shop ------------------------*/
+Breadcrumbs::resource('vehicalshops', $mls->messageLanguage('only_name', 'vehicalshop', 2));
+/*-------------  Shop Registration ------------------------*/
+Breadcrumbs::resource('shopregistrations', $mls->messageLanguage('only_name', 'shopregistration', 2));
+/*-------------  Car & Bike Details ------------------------*/
+Breadcrumbs::resource('carbikedetails', $mls->messageLanguage('only_name', 'carbikedetail', 2));
+/*-------------  Care Request ------------------------*/
 Breadcrumbs::resource('carerequests', $mls->messageLanguage('only_name', 'carerequest', 2));
 /*-------------  Rquest For care ------------------------*/
 Breadcrumbs::resource('customerregistration', $mls->messageLanguage('only_name', 'customerreg', 2));
+/*-------------  Flat Battery ------------------------*/
+Breadcrumbs::resource('flatbatterys', $mls->messageLanguage('only_name', 'flatbattery', 2));
+/*-------------  Flat Tyre ------------------------*/
+Breadcrumbs::resource('flattyres', $mls->messageLanguage('only_name', 'flattyre', 2));
+/*-------------  Flat Tyre ------------------------*/
+Breadcrumbs::resource('petroldesiels', $mls->messageLanguage('only_name', 'petroldesiel', 2));
